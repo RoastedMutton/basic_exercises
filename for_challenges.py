@@ -1,7 +1,12 @@
 # Задание 1
 # Необходимо вывести имена всех учеников из списка с новой строки
 
+from itertools import count
+
+
 names = ['Оля', 'Петя', 'Вася', 'Маша']
+for name in names:
+    print(f'{name}')
 # ???
 
 
@@ -12,6 +17,8 @@ names = ['Оля', 'Петя', 'Вася', 'Маша']
 # Петя: 4
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
+for name in names:
+    print(f'{name}: {len(name)}')
 # ???
 
 
@@ -25,6 +32,13 @@ is_male = {
     'Маша': False,
 }
 names = ['Оля', 'Петя', 'Вася', 'Маша']
+for name in names:
+    if is_male[name] is False:
+        sex = "ж"
+    else:
+        sex = "м"
+    print(f'{name}: {sex}')
+    
 # ???
 
 
@@ -40,6 +54,11 @@ groups = [
     ['Вася', 'Маша', 'Саша', 'Женя'],
     ['Оля', 'Петя', 'Гриша'],
 ]
+print(f'Всего {len(groups)} группы')
+i = 1
+for gr in groups:
+    print(f'Группа {i}: {len(gr)} ученика')
+    i+=1
 # ???
 
 
@@ -54,4 +73,8 @@ groups = [
     ['Оля', 'Петя', 'Гриша'],
     ['Вася', 'Маша', 'Саша', 'Женя'],
 ]
+i=1
+for gr in groups:
+    print(f'Группа {i}: {groups[i-1]}')   #ЕСЛИ Я ПРАВИЛЬНО ПОНЯЛ ЗАДАНИЕ
+    i+=1
 # ???

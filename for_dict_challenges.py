@@ -12,6 +12,14 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Петя'},
 ]
+used = []
+for st in students:
+    if st in used:
+        pass
+    else:
+        print(f'{st["first_name"]}: {students.count(st)}')
+        used.append(st)
+
 # ???
 
 
@@ -26,6 +34,13 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
+name_count = students.count(0)
+name = students[0]['first_name']
+for st in students:
+    if students.count(st) > name_count:
+        name_count = students.count(st)
+        name = st['first_name']
+print(f'Самое частое имя среди учеников: {name}')
 # ???
 
 
@@ -51,6 +66,15 @@ school_students = [
         {'first_name': 'Саша'},
     ],
 ]
+def classname(dict):
+    name_count = dict.count(0)
+    name = dict[0]['first_name']
+    for di in dict:
+        if dict.count(di) > name_count:
+            name_count = dict.count(di)
+            return di['first_name']
+for st in enumerate(school_students):
+    print(f'Самое частое имя в классе {st[0]+1}: {classname(st[1])}')
 # ???
 
 
@@ -72,6 +96,20 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
+
+for sch in school:
+    girls = 0
+    boys = 0
+    for stu in sch['students']:
+        if is_male[stu['first_name']] is False:
+            girls +=1
+        else:
+            boys +=1
+    print(f'Класс {sch["class"]}: девочки {girls}, мальчики {boys}')
+
+
+
+
 # ???
 
 
@@ -91,5 +129,25 @@ is_male = {
     'Олег': True,
     'Миша': True,
 }
+
+boy_class_num = 0
+girls_class_num = 0
+
+for sc in school:
+    girls = 0
+    boys = 0
+    for stu in sc["students"]:
+        if is_male[stu['first_name']] is False:
+            girls +=1
+        else:
+            boys +=1
+        if girls > girls_class_num:
+            girls_class_num = girls
+            girls_class = sc["class"]
+        if boys > boy_class_num:
+            boy_class_num = boys
+            boy_class = sc["class"]
+print(f'Больше всего мальчиков в классе {boy_class}')
+print(f'Больше всего девочек в классе {girls_class}')
 # ???
 
